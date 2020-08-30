@@ -1,0 +1,17 @@
+.container-cards{
+  margin-top: 2rem;
+}
+
+.header-container{
+  margin-top: 3rem;
+  background-color: #2FB2D2;
+  color: white;
+}
+
+.row{
+  margin-bottom: 2rem;
+}
+
+.btn-table{
+  margin: 0 3px 0 3px;
+}

@@ -1,0 +1,305 @@
+<div class="container header-container text-center rounded">
+  <h1>PADRES</h1>
+</div>
+<div class="container container-cards text-center">
+  <div class="row">
+    <button
+      type="button"
+      name=""
+      id=""
+      class="btn btn-success"
+      data-toggle="modal"
+      data-target="#addFatherModal"
+    >
+      Agregar
+    </button>
+    <table class="table container-cards">
+      <thead>
+        <tr>
+          <th scope="col">Nomrbe</th>
+          <th scope="col">Apellido</th>
+          <th scope="col">Documento</th>
+          <th scope="col">Telefono</th>
+          <th scope="col">Email</th>
+          <th scope="col">Dirección</th>
+          <th scope="col">Hijos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let father of fathers">
+          <td>{{ father.firstName }}</td>
+          <td>{{ father.lastName }}</td>
+          <td>{{ father.documentNumber }}</td>
+          <td>{{ father.phone }}</td>
+          <td>{{ father.email }}</td>
+          <td>{{ father.address }}</td>
+          <td>
+            <button
+              type="button"
+              name=""
+              id=""
+              class="btn btn-info btn-table"
+              data-toggle="modal"
+              data-target="#sonsModal"
+              (click)="getSons(father.id)"
+            >
+              Ver
+            </button>
+            <button
+              type="button"
+              name=""
+              id=""
+              class="btn btn-success btn-table"
+              data-toggle="modal"
+              data-target="#addSonModal"
+              (click)="getFatherId(father.id)"
+            >
+              Agregar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="addFatherModal"
+    tabindex="-1"
+    aria-labelledby=""
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="">Agregar padre</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <input
+              type="text"
+              class="form-control row"
+              placeholder="Nombre"
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+              [(ngModel)]="father.firstName"
+            />
+            <input
+              type="text"
+              class="form-control row"
+              placeholder="Apellido"
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+              [(ngModel)]="father.lastName"
+            />
+            <input
+              type="text"
+              class="form-control row"
+              placeholder="Documento"
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+              [(ngModel)]="father.documentNumber"
+            />
+            <input
+              type="text"
+              class="form-control row"
+              placeholder="Telefono"
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+              [(ngModel)]="father.phone"
+            />
+            <input
+              type="text"
+              class="form-control row"
+              placeholder="Email"
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+              [(ngModel)]="father.email"
+            />
+            <input
+              type="text"
+              class="form-control row"
+              placeholder="Dirección"
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+              [(ngModel)]="father.address"
+            />
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Cancelar
+            </button>
+            <button
+              type="button"
+              class="btn btn-success"
+              (click)="addFather()"
+              data-dismiss="modal"
+            >
+              Agregar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="addSonModal"
+    tabindex="-1"
+    aria-labelledby=""
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="">Agregar hijo</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <input
+              type="text"
+              class="form-control row"
+              placeholder="Nombre"
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+              [(ngModel)]="son.firstName"
+            />
+            <input
+              type="text"
+              class="form-control row"
+              placeholder="Apellido"
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+              [(ngModel)]="son.lastName"
+            />
+            <input
+              type="text"
+              class="form-control row"
+              placeholder="Documento"
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+              [(ngModel)]="son.documentNumber"
+            />
+            <input
+              type="text"
+              class="form-control row"
+              placeholder="Telefono"
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+              [(ngModel)]="son.phone"
+            />
+            <input
+              type="text"
+              class="form-control row"
+              placeholder="Email"
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+              [(ngModel)]="son.email"
+            />
+            <input
+              type="text"
+              class="form-control row"
+              placeholder="Dirección"
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+              [(ngModel)]="son.address"
+            />
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Cancelar
+            </button>
+            <button
+              type="button"
+              class="btn btn-success"
+              (click)="addSon()"
+              data-dismiss="modal"
+            >
+              Agregar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="sonsModal"
+    tabindex="-1"
+    aria-labelledby=""
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="">Detalle hijos</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <table class="table container-cards">
+                  <thead>
+                    <tr>
+                      <th scope="col">Nomrbe</th>
+                      <th scope="col">Apellido</th>
+                      <th scope="col">Documento</th>
+                      <th scope="col">Telefono</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Dirección</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let son of sons">
+                      <td>{{ son.firstName }}</td>
+                      <td>{{ son.lastName }}</td>
+                      <td>{{ son.documentNumber }}</td>
+                      <td>{{ son.phone }}</td>
+                      <td>{{ son.email }}</td>
+                      <td>{{ son.address }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
